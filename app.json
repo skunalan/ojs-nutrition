@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "ma-1111b",
+    "name": "OJS NUTRITION",
     "slug": "ma-1111b",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -22,16 +22,10 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "plugins": [
-      "expo-asset",
-      [
-        "expo-splash-screen",
-        {
-          "backgroundColor": "#ffffff",
-          "image": "./assets/splash-icon.png"
-        }
-      ],
-      "react-native-edge-to-edge"
-    ]
+    "splash": {
+      "image": "./assets/splash/logo-black.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    }
   }
 }
