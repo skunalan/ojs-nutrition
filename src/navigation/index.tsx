@@ -7,7 +7,7 @@ import {
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Image } from "react-native";
 import HomeScreen from "./screens/HomeScreen";
-import LoginScreen from "./screens/LoginScreen";
+import OnboardingScreen from "./screens/OnboardingScreen";
 
 const RootStack = createNativeStackNavigator({
   screenOptions: {
@@ -31,13 +31,21 @@ const RootStack = createNativeStackNavigator({
     //       ),
     //     },
     //   },
-    Login: {
-      screen: LoginScreen,
-    },
+
+    Onboarding: {
+      screen: OnboardingScreen
+    }
+  },
+});
+
+const AuthStack = createNativeStackNavigator({
+  screens: {
+
   },
 });
 
 export const Navigation = createStaticNavigation(RootStack);
+export const AuthNavigation = createStaticNavigation(AuthStack);
 
 type RootStackParamList = StaticParamList<typeof RootStack>;
 
