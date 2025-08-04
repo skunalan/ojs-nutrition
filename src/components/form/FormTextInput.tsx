@@ -23,11 +23,11 @@ const FormTextInput = ({
       name={name}
       render={({ field: { onChange, value } }) => (
         <>
-          <View className="mb-5">
-            <Text>
-              <Text>*</Text>
-              {label}
-            </Text>
+          <View className="mb-3 flex-row items-center">
+            {required && (
+              <Text className="mr-1">*</Text>
+            )}
+            <Text>{label}</Text>
           </View>
           <View className="bg-muted py-5 px-3 border border-gray-200 rounded-lg">
             <TextInput

@@ -1,28 +1,48 @@
-import { View, Text } from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
 import React from "react";
 import FormTextInput from "./FormTextInput";
 
-import { useForm, Controller } from "react-hook-form";
+import { useForm } from "react-hook-form";
+import SubmitButton from "../SubmitButton";
 
 const LoginForm = () => {
-  const { control } = useForm();
+  const { control, handleSubmit } = useForm();
 
+  // Bu alan (onSubmit ve onError) kontrol amaçlıdır. Gerçek kullanımda API çağrısı yapılacak ve bu alan kaldırılacak
+  // const { setLoggedIn } = useAuthStore();
+  const onSubmit = (data: any) => {
+    console.log(data);
+  };
+  const onError = (errors: any) => {
+    console.error(errors);
+  };
   return (
     <>
-      <View className="bg-background py-4 px-3 rounded-sm border border-gray-100">
-        <View>
-          <FormTextInput label="E-Posta" name="email" control={control} />
-        </View>
-        
-        <View className="mt-4 ">
+      <View className="mt-5">
         <FormTextInput
+          required
+          label="E-Posta"
+          name="email"
+          control={control}
+        />
+      </View>
+
+      <View className="mt-10 ">
+        <FormTextInput
+          required
           label="Şifre"
           name="password"
           control={control}
           secureTextEntry={true}
-          />
-          </View>
+        />
       </View>
+      <TouchableOpacity>
+        <Text className="text-right underline mt-5">Şifremi Unuttum?</Text>
+      </TouchableOpacity>
+      <SubmitButton
+        onPress={handleSubmit(onSubmit, onError)}
+        title="Giriş Yap"
+      />
     </>
   );
 };

@@ -2,6 +2,7 @@ import { View, Text, Image, TouchableOpacity } from "react-native";
 import React, { useState } from "react";
 import useAuthStore from "../../store/auth";
 import LoginForm from "../../components/form/LoginForm";
+import SignupForm from "../../components/form/SignupForm";
 
 const tabs = ["Giriş Yap", "Üye Ol"];
 
@@ -46,11 +47,16 @@ const OnboardingScreen = () => {
             </TouchableOpacity>
           ))}
         </View>
-          <View className="flex-1">
+          <View className="bg-background py-4 px-4 rounded-sm border border-gray-100">
         {activeTab === "Giriş Yap" ? (
+          <>
           <LoginForm />
+          
+          </>
         ) : (
-          <Text className="text-center mt-4">Üyelik Formu</Text>
+          <>
+          <SignupForm />
+          </>
         )}
       </View>
       </View>
